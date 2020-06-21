@@ -5,9 +5,11 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "Engine/DataTable.h"
+#include "Blueprint/UserWidget.h"
+#include "Components/SlateWrapperTypes.h"
 #include "UIManager.generated.h"
 
-UENUM(Meta = (Bitflags))
+UENUM()
 enum class E_UIType : uint8
 {
 	MainMenu UMETA(DisplayName = "MainMenu"),
@@ -17,15 +19,16 @@ enum class E_UIType : uint8
 };
 
 USTRUCT(BlueprintType)
-struct FUIElement
+struct QUATERNIONDEMO_API FUIElement
 {
 	GENERATED_USTRUCT_BODY()
 
+public:
 	UPROPERTY(EditAnywhere)
 	E_UIType type;
-
 	UPROPERTY(EditAnywhere)
-	AActor* actor;
+	TSubclassOf<UUserWidget> widget;
+	UUserWidget* widgetInstance;
 };
 
 UCLASS()
@@ -40,4 +43,21 @@ public:
 	UPROPERTY(EditAnywhere)
 	TArray<FUIElement> elems;
 
+	UFUNCTION(BlueprintCallable)
+	static AUIManager* Instance();
+	void InternalOpenUI(E_UIType type);
+	void InternalCloseUI(E_UIType type);
+	void InternalCloseAllUI();
+	UFUNCTION(BlueprintCallable)
+	static void OpenUI(E_UIType type, bool closeOtherUI);
+	UFUNCTION(BlueprintCallable)
+	static void CloseUI(E_UIType type);
+	static void CloseAllUI();
+
+protected:
+	// Called when components are done initializing
+	virtual void PostInitializeComponents() override;
+	
+private: 
+	static AUIManager* instance;
 };
