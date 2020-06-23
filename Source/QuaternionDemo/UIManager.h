@@ -12,10 +12,16 @@
 UENUM()
 enum class E_UIType : uint8
 {
+	xSprite UMETA(DisplayName = "xSprite"),
+	ySprite UMETA(DisplayName = "ySprite"),
+	zSprite UMETA(DisplayName = "zSprite"),
+	FxSprite UMETA(DisplayName = "FxSprite"),
+	FySprite UMETA(DisplayName = "FySprite"),
+	FzSprite UMETA(DisplayName = "FzSprite"),
+	AboutUI UMETA(DisplayName = "AboutUI"),
 	MainMenu UMETA(DisplayName = "MainMenu"),
 	QuaternionUI UMETA(DisplayName = "QuaternionUI"),
 	EulerUI UMETA(DisplayName = "EulerUI"),
-	AboutUI UMETA(DisplayName = "AboutUI"),
 };
 
 USTRUCT(BlueprintType)
@@ -52,6 +58,7 @@ public:
 	static void OpenUI(E_UIType type, bool closeOtherUI);
 	UFUNCTION(BlueprintCallable)
 	static void CloseUI(E_UIType type);
+	UFUNCTION(BlueprintCallable)
 	static void CloseAllUI();
 
 protected:
