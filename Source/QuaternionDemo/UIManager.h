@@ -22,6 +22,7 @@ enum class E_UIType : uint8
 	MainMenu UMETA(DisplayName = "MainMenu"),
 	QuaternionUI UMETA(DisplayName = "QuaternionUI"),
 	EulerUI UMETA(DisplayName = "EulerUI"),
+	MainMenu UMETA(DisplayName = "MainMenu"),
 };
 
 USTRUCT(BlueprintType)
