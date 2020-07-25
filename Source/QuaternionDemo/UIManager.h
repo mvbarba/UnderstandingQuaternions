@@ -9,7 +9,7 @@
 #include "Components/SlateWrapperTypes.h"
 #include "UIManager.generated.h"
 
-UENUM()
+UENUM(BlueprintType)
 enum class E_UIType : uint8
 {
 	xSprite UMETA(DisplayName = "xSprite"),
@@ -22,7 +22,15 @@ enum class E_UIType : uint8
 	MainMenu UMETA(DisplayName = "MainMenu"),
 	QuaternionUI UMETA(DisplayName = "QuaternionUI"),
 	EulerUI UMETA(DisplayName = "EulerUI"),
-	MainMenu UMETA(DisplayName = "MainMenu"),
+	Tutorial1 UMETA(DisplayName = "Tutorial1"), 
+	Tutorial2,
+	Tutorial3,
+	Tutorial4,
+	Tutorial5,
+	Tutorial6,
+	Tutorial7,
+	TutorialNavigate,
+	TutorialBackground
 };
 
 USTRUCT(BlueprintType)
