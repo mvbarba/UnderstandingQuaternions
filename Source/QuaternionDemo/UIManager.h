@@ -29,6 +29,7 @@ enum class E_UIType : uint8
 	Tutorial5,
 	Tutorial6,
 	Tutorial7,
+	Tutorial8,
 	TutorialNavigate,
 	TutorialBackground
 };
